@@ -2,9 +2,10 @@
 
 This is a study on co-residency attacks in the cloud and the ability for Bracketized VM image to detect these exploits.
 Our goal is three fold:
-    1. Establish that memory bus locking while co-resident degrades performance
-    2. Discover ability of "Bracketed" VM diskimage to detect QoS attack through membus locking
-    3. Provide potential strategies to mitigate exploit
+
+1. Establish that memory bus locking while co-resident degrades performance
+2. Discover ability of "Bracketed" VM diskimage to detect QoS attack through membus locking
+3. Provide potential strategies to mitigate exploit
 
 # Initial Setup
 
