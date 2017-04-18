@@ -1,0 +1,13 @@
+4_18_2017 -->
+DONE:
+1. Installed and set up two Ubuntu 14.04 images, running on VirtualBox
+2. Talked through overview of project architecture
+  a. Sandbox machine (running CentOS) acts as hardware
+  b. VirtualBox is our hypervisor
+  c. Ubuntu instances simulate two co-located VMs on cloud
+  
+TODO:
+1. Read "Placement Vunlerability" paper, pay attention to section 4.1
+2. Brainstorm / research algorithms to detect co-location
+3. Prepare to write code on Thursday (brush up on C programming)
+<--
