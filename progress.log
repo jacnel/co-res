@@ -15,6 +15,10 @@ Cache information: path -- /sys/devices/system/cpu/<cpu_index>/cache/
   2. index1 is instruction L1 cache
   3. index2 is L2 cache
   4. index3 is L3 cache
+
+      LLC info (L3) -->
+        size: 6144KB, ways: 12, sets: 8192, line_size: 64
+      <--
   
 JN
 CPU information: path -- /proc/cpuinfo
@@ -25,6 +29,34 @@ CPU information: path -- /proc/cpuinfo
  
 Now that we have the cache and clock information, implementation of the probing code can begin. 
   - meet with Prof Loew to discuss memory locking and potential avenues
+
+      Pseudo-code for sender-->
+      // allocate memory multiples of 64 bits
+      char_ptr = allocate_memory((N+1)*8)
+      //move half word up
+      unaligned_addr = char_ptr + 2
+
+      loop forever:
+        loop i from (1..N):
+          atomic_op(unaligned_addr + i, some_value)
+        end loop
+      end loop
+      <--
+
+      Pseudo-code for probe -->
+      size = LLC_size * (LLC_ways + 1)
+      stride = LLC_sets * cacheline_sz
+      buffer = alloc_ptr_chasing_buff(size, stride)
+
+      loop sample from (1..10): //number of samples
+        start_rdtsc = rdtsc()
+        loop probes from (1..10000):
+          probe(buffer); //always hits memory
+        end loop
+        time_taken[sample] = (rdtsc() - start_rdtsc)
+      end loop
+      <--
+
 <--
 
 
@@ -32,3 +64,4 @@ Resources:
 
 http://btorpey.github.io/blog/2014/02/18/clock-sources-in-linux/ --> Measuring Latency in Linux
 https://github.com/btorpey/clocks/blob/master/ClockBench.cpp --> example code for assembly RDTSCP
+https://github.com/afborchert/pointer-chasing --> utility for measuring access times
