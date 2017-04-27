@@ -59,6 +59,25 @@ Now that we have the cache and clock information, implementation of the probing 
 
 <--
 
+4_25_17 -->
+rdtscp code implemented (MB)
+
+implementation of ptr-chasing probe started (JN)
+<--
+
+4_27_17 -->
+probe.c debugged and ready for action (JN)
+	1. able to run through iterations, roughly 2,000,000 cycle runtime
+
+"perf" utiltity will come in handy evaluating the performance degredation
+
+generic code for portability one its way (MB)
+
+TODO: 
+1. Write memory locking code!
+2. Begin write up; easier now than later
+3. Get benchmarks for probe running alone
+<--
 
 Resources:
 
