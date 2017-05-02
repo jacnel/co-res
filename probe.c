@@ -120,38 +120,3 @@ int main() {
 	// free all pointers
 	free(chasing_buf);
 }
-
-/*
-Normal output
-
-Starting of the program, start_t = 4195392
-Going to scan a big loop, start_t = 4195392
-Run 0: 7614777
-Run 1: 7809730
-Run 2: 7999259
-Run 3: 7920497
-Run 4: 7713896
-Run 5: 7709345
-Run 6: 7824286
-Run 7: 7841637
-Run 8: 7824240
-Run 9: 7769998
-*/
-
-/*
-Messing around with sublime text during run time
-
-Starting of the program, start_t = 4195392
-Going to scan a big loop, start_t = 4195392
-Run 0: 7736186	0-1 normal runs
-Run 1: 7741312	
-Run 2: 8089420	2 switch focus from terminal to sublime text
-Run 3: 10153410
-Run 4: 11078050	sublime text 3 moves from wait to ready bin, slow down is from clicking
-Run 5: 10000172	and hightlighting etc.
-Run 6: 7720998	6 switch focus back to terminal
-Run 7: 7615559
-Run 8: 7844114
-Run 9: 7807428
-*/
-
