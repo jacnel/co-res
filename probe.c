@@ -74,7 +74,6 @@ void** alloc_ptr_chasing_buf(size_t size, size_t stride) {
 	unsigned int run;
 	void** last = NULL;
 	for(run = 0; run < runs; run++) {
-		printf("run %d\n", run);
 		char* next = (char*)mem + *(offset[run]) * sizeof(void*);
 		if(last) {
 			*last = (void*) next;		
@@ -105,15 +104,13 @@ int main() {
 	unsigned long long results[10];
 	int i, j;
 	for(i = 0; i < 10; i++) {
-		printf("...probe %d started\n", i);
 		unsigned long long start = rdtscp();
 		void** current = (void**) chasing_buf;
-		for(j = 0; j < 10000; j++) {
+		for(j = 0; j < 1000000; j++) {
 			current = (void**) *current; 
 		}
 		chase_global = *current;
 		results[i] = (rdtscp() - start);
-		printf("...probe %d stopped\n", i);
 	}
 
 	for(i = 0; i < 10; i++) {
