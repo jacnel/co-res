@@ -85,11 +85,13 @@ Updated gcc compiler to 4.9 (JN)
 Memory locking complete, atomic add on unaligned pointer locks memory bus (JN)
        1. Used "stdatomic.h" lib to create an atomic_char pointer
        2. Offset the pointer by half word (2 bytes)
-       3. Infinite loop adding one to each byte in the atomic buffer
+       3. Infinite loop adding one to each byte in the atomic buffer that points to atomic_ints
        	  a. Reference to unaligned pointer that spans a cache line goes straight to memory
 
 Another potential for memory bus locking is mem-mapped I/O (JN)
 	1. Not sure how plausible it would be on public cloud
+	
+Multithreaded lock implemented, increase contension at memory bus (JN)
 
 <--
 
