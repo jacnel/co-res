@@ -3,7 +3,7 @@
 #include <stdatomic.h>
 #include <pthread.h>
 
-#define LENGTH 8192
+#define LENGTH 8192 /* 2^13 */
 
 void * thread_func(void* unalgn_ptr) {
   int i;
