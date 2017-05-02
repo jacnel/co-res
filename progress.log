@@ -79,8 +79,28 @@ TODO:
 3. Get benchmarks for probe running alone
 <--
 
+5_1_17 -->
+Updated gcc compiler to 4.9 (JN)
+
+Memory locking complete, atomic add on unaligned pointer locks memory bus (JN)
+       1. Used "stdatomic.h" lib to create an atomic_char pointer
+       2. Offset the pointer by half word (2 bytes)
+       3. Infinite loop adding one to each byte in the atomic buffer
+       	  a. Reference to unaligned pointer that spans a cache line goes straight to memory
+
+Another potential for memory bus locking is mem-mapped I/O (JN)
+	1. Not sure how plausible it would be on public cloud
+
+<--
+
 Resources:
 
 http://btorpey.github.io/blog/2014/02/18/clock-sources-in-linux/ --> Measuring Latency in Linux
 https://github.com/btorpey/clocks/blob/master/ClockBench.cpp --> example code for assembly RDTSCP
 https://github.com/afborchert/pointer-chasing --> utility for measuring access times
+
+Dependencies:
+
+VirtualBox
+Ubuntu 14.4
+gcc 4.9 to include "stdatomic.h" lib
