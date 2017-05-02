@@ -101,9 +101,9 @@ int main() {
 	unsigned int stride = LLC_SETS * LLC_LINESIZE;
 	void** chasing_buf = alloc_ptr_chasing_buf(size, stride);
 	
-	unsigned long long results[10];
+	unsigned long long results[100];
 	int i, j;
-	for(i = 0; i < 10; i++) {
+	for(i = 0; i < 100; i++) {
 		unsigned long long start = rdtscp();
 		void** current = (void**) chasing_buf;
 		for(j = 0; j < 1000000; j++) {
@@ -113,8 +113,8 @@ int main() {
 		results[i] = (rdtscp() - start);
 	}
 
-	for(i = 0; i < 10; i++) {
-		printf("Run %d: %llu\n", i, results[i]);
+	for(i = 0; i < 100; i++) {
+		printf("%llu\n", results[i]);
 	}
 	
 	// free all pointers
