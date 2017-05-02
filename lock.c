@@ -6,7 +6,7 @@
 
 int main() {
 	atomic_char* ptr = (atomic_char*) malloc((LENGTH + 1) * 8);
-	atomic_char* unalgn_ptr = ptr + 2;
+	atomic_int* unalgn_ptr = ptr + 2;
 
 	while(1) {
 		int i;
