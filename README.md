@@ -7,6 +7,8 @@ Our goal is three fold:
 2. Discover ability of "Bracketed" VM diskimage to detect QoS attack through membus locking
 3. Provide potential strategies to mitigate exploit
 
+A complete write up is included in this repository. To get the full account of this project, please review that document.
+
 # Initial Setup
 
 To begin, we setup two Ubuntu VM's, running on VirtualBox, on a single machine in Lehigh University's Sandbox Lab. 
